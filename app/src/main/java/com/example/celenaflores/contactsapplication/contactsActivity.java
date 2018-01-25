@@ -69,9 +69,6 @@ public class contactsActivity extends AppCompatActivity {
         addListenerOnRatingBar();
         addListenerOnButton();
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contacts);
-
         try(FileInputStream in = openFileInput(FILENAME)) {
             //load locations from file, if file was written
             String line;

@@ -16,6 +16,7 @@
     <string name="location_edit_label">Edit Location:</string>
     <string name="rating_label">Rating:</string>
     <string name="rating_edit_label">Rating Status:</string>
+    <string name="submit_label">Submit</string>
     <string name="next_button_label">Next Contact</string>
     <string name="previous_button_label">Previous Contact</string>
 
