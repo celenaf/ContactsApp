@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Walking Dead Contacts</string>
+    <string name="rick_name">Rick Grimes</string>
+    <string name="rick_age">41</string>
+    <string name="carl_name">Carl Grimes</string>
+    <string name="carl_age">16</string>
+    <string name="glenn_name">Glenn Rhee</string>
+    <string name="glenn_age">25</string>
+    <string name="maggie_name">Maggie Rhee</string>
+    <string name="maggie_age">26</string>
+    <string name="daryl_name">Daryl Dixon</string>
+    <string name="daryl_age">42</string>
+    <string name="name_label">Name:</string>
+    <string name="age_label">Age:</string>
+    <string name="location_label">Location:</string>
+    <string name="location_edit_label">Edit Location:</string>
+    <string name="rating_label">Rating:</string>
+    <string name="rating_edit_label">Rating Status:</string>
+    <string name="next_button_label">Next Contact</string>
+    <string name="previous_button_label">Previous Contact</string>
+
+</resources>
