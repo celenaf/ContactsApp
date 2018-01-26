@@ -49,9 +49,7 @@ public class Contacts {
     public int getmAgeResId() { return mAgeResId; }
 
     //Set the resource ID representing the contact's age
-    public void setmAgeResId(int mAgeResId) {
-        this.mAgeResId = mAgeResId;
-    }
+    public void setmAgeResId(int mAgeResId) { this.mAgeResId = mAgeResId; }
 
     //Refers to a string defined in strings.xml
     private int mAgeResId; //not storing actual text here!
@@ -64,6 +62,4 @@ public class Contacts {
         mAgeResId = ageResId;
         mLocation = "???"; //initially user doesn't know location
     }
-
-
 }

@@ -1,5 +1,7 @@
 package com.example.celenaflores.contactsapplication;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
@@ -24,7 +26,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class contactsActivity extends AppCompatActivity {
-
     //for logging
     private final String TAG = "contacts";
 
@@ -47,7 +48,7 @@ public class contactsActivity extends AppCompatActivity {
     private Button btnSubmit;
 
     //our model, a fixed array with 5 characters from TWD
-    private final Contacts[] mContacts = new Contacts[] {
+    private final Contacts[] mContacts = new Contacts[]{
             new Contacts(R.string.rick_name, R.drawable.rick, R.string.rick_age),
             new Contacts(R.string.carl_name, R.drawable.carl, R.string.carl_age),
             new Contacts(R.string.glenn_name, R.drawable.glenn, R.string.glenn_age),
@@ -69,14 +70,14 @@ public class contactsActivity extends AppCompatActivity {
         addListenerOnRatingBar();
         addListenerOnButton();
 
-        try(FileInputStream in = openFileInput(FILENAME)) {
+        try (FileInputStream in = openFileInput(FILENAME)) {
             //load locations from file, if file was written
             String line;
             char next;
 
             //loop over the 5 lines in the file (hardcoded, lazy!)
-            for(int i = 0; i < 5; i++) {
-                line = "";
+            for (int i = 0; i < 5; i++) {
+                line = " ";
                 while ((next = (char) in.read()) != '\n') {
                     line += next;
                 }
@@ -86,12 +87,12 @@ public class contactsActivity extends AppCompatActivity {
             in.close();
         } catch (java.io.FileNotFoundException fnfe) {
             Log.d(TAG, "FileNotFoundException when trying to load file" + fnfe);
-        } catch(java.io.IOException ioe) {
+        } catch (java.io.IOException ioe) {
             Log.d(TAG, "IOException when trying to load file" + ioe);
         }
 
         //update with saved state when re-creating this activity
-        if(savedInstanceState != null)
+        if (savedInstanceState != null)
             mCurrentIndex = savedInstanceState.getInt(KEY_CONTACT_INDEX, 0);
 
         //lookup each View by ID so we can set their attributes/behaviors
@@ -133,7 +134,7 @@ public class contactsActivity extends AppCompatActivity {
                 mCurrentIndex = (mCurrentIndex - 1);
 
                 //ensures we wrap back to index 4 (instead of -1)
-                if(mCurrentIndex == -1)
+                if (mCurrentIndex == -1)
                     mCurrentIndex = 4;
 
                 //update all text fields and the image view based on current state
@@ -157,7 +158,7 @@ public class contactsActivity extends AppCompatActivity {
             outputStream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
 
             //write each contact location to a new line
-            for(int i = 0; i < 5; i++) {
+            for (int i = 0; i < 5; i++) {
                 outputStream.write((mContacts[i].getLocation() + '\n').getBytes());
                 Log.d(TAG, "Writing location: " + mContacts[i].getLocation() + '\n');
             }
@@ -228,6 +229,7 @@ public class contactsActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void addListenerOnButton() {
